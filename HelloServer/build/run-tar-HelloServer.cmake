@@ -1,0 +1,7 @@
+EXECUTE_PROCESS(COMMAND /usr/bin/cmake -E echo mkdir -p /home/zy/TarsCppCIDemo/HelloServer/build/tmp/HelloServer)
+EXECUTE_PROCESS(COMMAND /usr/bin/cmake -E echo rm -rf /home/zy/TarsCppCIDemo/HelloServer/build/tmp/HelloServer)
+EXECUTE_PROCESS(COMMAND /usr/bin/cmake -E make_directory /home/zy/TarsCppCIDemo/HelloServer/build/tmp/HelloServer)
+EXECUTE_PROCESS(COMMAND /usr/bin/cmake -E echo copy bin/HelloServer /home/zy/TarsCppCIDemo/HelloServer/build/tmp/HelloServer/)
+EXECUTE_PROCESS(COMMAND /usr/bin/cmake -E copy bin/HelloServer /home/zy/TarsCppCIDemo/HelloServer/build/tmp/HelloServer/)
+EXECUTE_PROCESS(COMMAND /usr/bin/cmake -E chdir /home/zy/TarsCppCIDemo/HelloServer/build/tmp/ tar czfv HelloServer.tgz HelloServer)
+EXECUTE_PROCESS(COMMAND /usr/bin/cmake -E copy_if_different /home/zy/TarsCppCIDemo/HelloServer/build/tmp/HelloServer.tgz /home/zy/TarsCppCIDemo/HelloServer/build/HelloServer.tgz)
